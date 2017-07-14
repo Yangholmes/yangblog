@@ -14,3 +14,8 @@ Text Domain: yangholmes
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+html, body {
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
+}

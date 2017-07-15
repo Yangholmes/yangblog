@@ -29,12 +29,12 @@
 
 <body>
   <header>
-
-    <div class="logo-title">
-      <img class="logo" src="" alt="">
-      <span class="title">Yangholmes Blog</span>
+    <div class="header">
+      <div class="logo-title">
+        <img class="logo" src="" alt="">
+        <span class="title">Yangholmes Blog</span>
+      </div>
+      <div class="field-search"><input type="search"></div>
+      <nav class="nav"></nav>
     </div>
-    <div class="field-search"><input type="search"></div>
-    <nav class="nav"></nav>
-
   </header>

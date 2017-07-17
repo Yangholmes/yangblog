@@ -31,10 +31,13 @@
   <header>
     <div class="header">
       <div class="logo-title">
-        <img class="logo" src="" alt="">
+        <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/image/The_Flash.jpg" alt="">
         <span class="title">Yangholmes Blog</span>
       </div>
-      <div class="field-search"><input type="search"></div>
+      <div class="field-search">
+        <input type="search">
+        <span class="search-icon fa fa-search"></span>
+      </div>
       <nav class="nav"></nav>
     </div>
   </header>

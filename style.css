@@ -25,7 +25,21 @@ html, body {
   font-size: 100%;
   font-family: "Microsoft Yahei","Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: gray;
+}
+a:active,
+a:focus {
+  color: black;
+}
 
+/**
+ * header样式
+ */
 header {
   width: 100%; height: 3.5em;
   display: flex;
@@ -93,3 +107,76 @@ nav,
   display: flex;
   min-width: 50%;
 }
+
+/**
+ * index样式
+ */
+.index {
+  width: 100%;
+}
+
+.content-area {
+  display: flex;
+  width: 1000px; height: auto;
+  margin: 0 auto;
+}
+
+.sidebar {
+  display: block;
+  width: 30%;
+}
+
+main,
+.main {
+  display: block;
+  width: 60%;
+}
+
+.ad-bar {
+  display: block;
+  width: 10%;
+}
+
+  /**
+   * article style
+   */
+   article {
+    margin: 0 0; padding: .5em;
+    border-bottom: 1px solid gray;
+    /*box-shadow: 0 0 5px 0px;*/
+    /*border-radius: 5px;*/
+  }
+  article:first-child{
+    margin-top: 1em;
+  }
+  article:last-child{
+    border: none;
+  }
+  article:hover {
+    background: rgba(200, 200, 200, .2);
+  }
+
+  .sticky-post {
+    color: gray;
+    font-size: .75em;
+  }
+
+  h2.post-title {
+    margin: .5em 0 .5em 0;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: .85em;
+  }
+
+  .comments-share {
+    display: flex;
+    justify-content: flex-end;
+    font-size: .8em;
+  }
+  .comments-share a {
+    margin-left: .5em;
+    color: rgb(150, 150, 150);
+  }

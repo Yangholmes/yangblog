@@ -29,3 +29,22 @@ function yangholmesScript () {
   wp_enqueue_script('universal-script', get_theme_file_uri( '/assets/js/universal.js') );
 }
 add_action( 'wp_enqueue_scripts', 'yangholmesScript' );
+
+/**
+ * Filter the excerpt length to 100 characters.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function yangholmesExcerptLength() {
+    return 10;
+}
+add_filter( 'excerpt_length', 'yangholmesExcerptLength');
+/**
+ * Filter the ex
+ * @return [type] [description]
+ */
+function yangholmesExcerptMore() {
+    return '...';
+}
+add_filter( 'excerpt_more', 'yangholmesExcerptMore' );

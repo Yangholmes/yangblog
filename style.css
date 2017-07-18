@@ -180,3 +180,6 @@ main,
     margin-left: .5em;
     color: rgb(150, 150, 150);
   }
+  .comments-share a:hover {
+    color: rgb(100, 100, 100);
+  }

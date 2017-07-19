@@ -53,7 +53,7 @@
     <a href="" class="share">
       <span class="fa fa-share"></span>
     </a>
-    <a href="<?php echo get_post_permalink(); ?>" class="comments">
+    <a href="<?php echo get_post_permalink().'/#comment'; ?>" class="comments">
       <span class="fa fa-comment"><?php echo get_comments_number(); ?></span>
     </a>
   </div>

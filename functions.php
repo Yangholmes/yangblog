@@ -5,7 +5,18 @@
  * @var [type]
  */
 function yangholmesSetup () {
-
+  // Define and register starter content to showcase the theme on new sites.
+	$starter_content = array(
+		'widgets' => array(
+			// Place three core-defined widgets in the sidebar area.
+			'sidebar-1' => array(
+				'text_business_info',
+				'search',
+				'text_about',
+			)
+    )
+  );
+  add_theme_support( 'starter-content', $starter_content );
 }
 add_action( 'after_setup_theme', 'yangholmesSetup' );
 
@@ -48,3 +59,21 @@ function yangholmesExcerptMore() {
     return '...';
 }
 add_filter( 'excerpt_more', 'yangholmesExcerptMore' );
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function yangholmes_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'sidebar', 'Yangholmes' ),
+		'id'            => 'sidebar-1',
+		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'Yangholmes' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'yangholmes_widgets_init' );

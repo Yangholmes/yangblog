@@ -5,18 +5,75 @@
  * @var [type]
  */
 function yangholmesSetup () {
+  /*
+   * Make theme available for translation.
+   * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/twentyseventeen
+   * based on Twenty Seventeen
+   */
+  load_theme_textdomain( 'Yangholmes' );
+
+  // This theme uses wp_nav_menu() in two locations.
+	register_nav_menus( array(
+		'top'    => __( 'Top Menu', 'Yangholmes' ),
+	) );
+
+  // Set the default content width.
+  $GLOBALS['content_width'] = 525;
+
+  // Add theme support for selective refresh for widgets.
+  add_theme_support( 'customize-selective-refresh-widgets' );
+
   // Define and register starter content to showcase the theme on new sites.
-	$starter_content = array(
+	$starterContent = array(
 		'widgets' => array(
 			// Place three core-defined widgets in the sidebar area.
-			'sidebar-1' => array(
+			'sidebar-left' => array(
+        'calendar',
+        'categories',
+			),
+
+      // Add the core-defined business info widget to the footer area.
+			'footer' => array(
 				'text_business_info',
-				'search',
-				'text_about',
-			)
-    )
+			),
+    ),
+    // Default to a static front page and assign the front and posts pages.
+		'options' => array(
+			'show_on_front' => 'page',
+			'page_on_front' => '{{home}}',
+			'page_for_posts' => '{{blog}}',
+		),
+    // Set the front page section theme mods to the IDs of the core-registered pages.
+		'theme_mods' => array(
+			'panel_1' => '{{homepage-section}}',
+			'panel_2' => '{{about}}',
+			'panel_3' => '{{blog}}',
+			'panel_4' => '{{contact}}',
+		),
+    // Set up nav menus for each of the two areas registered in the theme.
+		'nav_menus' => array(
+			// Assign a menu to the "top" location.
+			'top' => array(
+				'name' => __( 'Top Menu', 'twentyseventeen' ),
+				'items' => array(
+					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
+					'page_about',
+					'page_blog',
+					'page_contact',
+				),
+			),
+    ),
   );
-  add_theme_support( 'starter-content', $starter_content );
+
+  /**
+	 * Filters Twenty Seventeen array of starter content.
+	 *
+	 * @since Twenty Seventeen 1.1
+	 *
+	 * @param array $starter_content Array of starter content.
+	 */
+	$starterContent = apply_filters( 'twentyseventeen_starter_content', $starterContent );
+  add_theme_support( 'starter-content', $starterContent );
 }
 add_action( 'after_setup_theme', 'yangholmesSetup' );
 
@@ -65,10 +122,10 @@ add_filter( 'excerpt_more', 'yangholmesExcerptMore' );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function yangholmes_widgets_init() {
+function yangholmesWidgetsInit() {
 	register_sidebar( array(
-		'name'          => __( 'sidebar', 'Yangholmes' ),
-		'id'            => 'sidebar-1',
+		'name'          => __( 'Blog Sidebar', 'Yangholmes' ),
+		'id'            => 'sidebar-left',
 		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'Yangholmes' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -76,4 +133,14 @@ function yangholmes_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'yangholmes_widgets_init' );
+add_action( 'widgets_init', 'yangholmesWidgetsInit' );
+
+/**
+ * Additional features to allow styling of the templates.
+ */
+require get_parent_theme_file_path( '/inc/template-functions.php' );
+
+/**
+ * Customizer additions.
+ */
+require get_parent_theme_file_path( '/inc/customizer.php' );

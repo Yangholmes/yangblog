@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0 user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favico.ico" type="image/x-icon">
-  <title><?php bloginfo('name'); ?></title>
+  <title><?php bloginfo( 'name' ); ?></title>
 
   <!-- Fire the wp_head action. Plugins and WordPress core use this function to insert crucial elements into your document. -->
   <?php wp_head(); ?>
@@ -32,7 +32,7 @@
     <div class="header">
       <div class="logo-title">
         <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/image/The_Flash.jpg" alt="">
-        <span class="title">Yangholmes Blog</span>
+        <span class="title"><?php bloginfo( 'name' ); ?></span>
       </div>
       <div class="field-search">
         <input type="search">

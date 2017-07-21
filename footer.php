@@ -7,16 +7,27 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage Yangholmes
  * @since 1.0
  * @version 1.2
  */
 
 ?>
 
-
 <footer>
-<?php wp_footer(); ?>
+  <div class="footer">
+    <?php
+      if ( !is_active_sidebar( 'footer' ) ) {
+        dynamic_sidebar( 'footer' );
+      }
+      else {
+        ?>
+        
+        <?php
+      }
+    ?>
+  </div>
 </footer>
 
+<?php wp_footer(); ?>
 </body>

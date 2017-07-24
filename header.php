@@ -38,6 +38,13 @@
         <input type="search">
         <span class="search-icon fa fa-search"></span>
       </div>
-      <nav class="nav"></nav>
+      <nav class="nav">
+        <?php if( has_nav_menu('top') ) {
+          wp_nav_menu( array(
+            'theme_location' => 'top',
+        		'menu_id'        => 'top-menu',
+          ) );
+        } ?>
+      </nav>
     </div>
   </header>

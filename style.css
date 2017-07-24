@@ -102,11 +102,26 @@ header {
         opacity: .7;
       }
 
-  nav,
-  .nav {
+  nav {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     min-width: 50%;
+    font-weight: bold;
   }
+  nav div {
+    width: 100%;
+    display: flex;
+  }
+    ul#top-menu {
+      width: 100%;
+      margin: 0; padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /*flex-direction: row;*/
+    }
 
 /**
  * index样式

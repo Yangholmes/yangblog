@@ -13,12 +13,17 @@ function yangholmesSetup () {
   load_theme_textdomain( 'Yangholmes' );
 
   // This theme uses wp_nav_menu() in two locations.
-	register_nav_menus( array(
-		'top'    => __( 'Top Menu', 'Yangholmes' ),
-	) );
+	register_nav_menu(
+		'top', __( 'Top Menu', 'Yangholmes' )
+	);
 
   // Set the default content width.
   $GLOBALS['content_width'] = 525;
+
+  // This theme uses wp_nav_menu() in two locations.
+	register_nav_menus( array(
+		'top'    => __( 'Top Menu', 'Yangholmes' ),
+	) );
 
   // Add theme support for selective refresh for widgets.
   add_theme_support( 'customize-selective-refresh-widgets' );
@@ -54,7 +59,7 @@ function yangholmesSetup () {
 		'nav_menus' => array(
 			// Assign a menu to the "top" location.
 			'top' => array(
-				'name' => __( 'Top Menu', 'twentyseventeen' ),
+				'name' => __( 'Top Menu', 'Yangholmes' ),
 				'items' => array(
 					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
 					'page_about',
@@ -95,6 +100,10 @@ add_action( 'wp_enqueue_scripts', 'yangholmesStyle' );
 function yangholmesScript () {
   wp_enqueue_script('jquery');
   wp_enqueue_script('universal-script', get_theme_file_uri( '/assets/js/universal.js') );
+
+  if ( has_nav_menu('top') ) {
+		wp_enqueue_script('yangholmes-navigation', get_theme_file_uri('/assets/js/navigation.js'));
+  }
 }
 add_action( 'wp_enqueue_scripts', 'yangholmesScript' );
 
